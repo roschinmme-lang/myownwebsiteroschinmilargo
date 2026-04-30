@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roschin Milargo — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       CURSOR (custom animated cursor dot)
+  ============================================================ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">RM<span class="accent">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#certificates">Certs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Hamburger for mobile -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#works" class="mobile-link">Works</a></li>
+        <li><a href="#certificates" class="mobile-link">Certs</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <!-- Floating orbs for parallax depth -->
+    <div class="orb orb-1" data-parallax="0.08"></div>
+    <div class="orb orb-2" data-parallax="0.04"></div>
+    <div class="orb orb-3" data-parallax="0.12"></div>
+    <!-- Grid noise texture overlay -->
+    <div class="noise-overlay"></div>
+
+    <div class="hero-content">
+      <!-- Animated badge -->
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span> Available for Opportunities
+      </div>
+
+      <h1 class="hero-title reveal-up delay-1">
+        <span class="greeting">Hi, I'm</span>
+        <span class="hero-name">Roschin<br>Milargo</span>
+      </h1>
+
+      <!-- Typing text effect container -->
+      <p class="hero-role reveal-up delay-2">
+        <span class="role-prefix">I build</span>
+        <span class="typing-wrapper">
+          <span class="typing-text" id="typingText"></span>
+          <span class="typing-cursor">|</span>
+        </span>
+      </p>
+
+      <p class="hero-tagline reveal-up delay-3">
+        2nd-year BSIT student from STI Bacoor, Cavite — crafting software that actually matters.
+      </p>
+
+      <div class="hero-cta reveal-up delay-4">
+        <a href="#works" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Say Hello →</a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator reveal-up delay-5">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </div>
+
+    <!-- Floating geometric shape -->
+    <div class="hero-shape-wrap reveal-right delay-2">
+      <div class="hero-shape">
+        <div class="shape-inner">
+          <div class="shape-ring r1"></div>
+          <div class="shape-ring r2"></div>
+          <div class="shape-ring r3"></div>
+          <div class="shape-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+  ============================================================ -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <div class="section-label reveal-up">About Me</div>
+      <div class="about-grid">
+        <!-- Bio text -->
+        <div class="about-text">
+          <h2 class="section-title reveal-up">
+            Building things<br><span class="accent-text">with purpose.</span>
+          </h2>
+          <p class="body-text reveal-up delay-1">
+            I'm a 2nd-year Bachelor of Science in Information Technology student at STI Bacoor, Cavite. As part of <strong>New Innova</strong>, I architect and develop full-stack solutions — from desktop Java applications to AI-powered browser extensions.
+          </p>
+          <p class="body-text reveal-up delay-2">
+            My work lives at the intersection of engineering precision and real human impact. Whether detecting deepfakes or managing inventory, I believe software should solve problems people actually have.
+          </p>
+          <!-- Tech stack pills -->
+          <div class="stack-wrap reveal-up delay-3">
+            <span class="stack-label">Tech Stack</span>
+            <div class="stack-pills">
+              <span class="pill">Java</span>
+              <span class="pill">C#</span>
+              <span class="pill">HTML</span>
+              <span class="pill">CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">SQL</span>
+              <span class="pill">Oracle DB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats cards -->
+        <div class="about-stats reveal-right delay-2">
+          <div class="stat-card glass">
+            <span class="stat-num">4+</span>
+            <span class="stat-desc">Projects Shipped</span>
+          </div>
+          <div class="stat-card glass">
+            <span class="stat-num">2nd</span>
+            <span class="stat-desc">Year BSIT</span>
+          </div>
+          <div class="stat-card glass">
+            <span class="stat-num">STI</span>
+            <span class="stat-desc">Bacoor, Cavite</span>
+          </div>
+          <div class="stat-card glass accent-card">
+            <span class="stat-num">∞</span>
+            <span class="stat-desc">Lines of Curiosity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WORKS / PORTFOLIO SECTION
+  ============================================================ -->
+  <section class="works section-pad" id="works">
+    <div class="container">
+      <div class="section-label reveal-up">Portfolio</div>
+      <h2 class="section-title reveal-up">Selected<br><span class="accent-text">Works.</span></h2>
+      <p class="section-sub reveal-up delay-1">A collection of projects built with intention — each one solving a real problem.</p>
+
+      <div class="works-grid">
+
+        <!-- Project 1: StockMaster Pro -->
+        <article class="project-card glass reveal-up delay-1" data-index="01">
+          <div class="card-img-wrap">
+            <div class="card-img project-img-1">
+              <div class="img-overlay">
+                <a href="#" class="overlay-btn">View Project →</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Java · Desktop</span>
+              <span class="card-index">01</span>
+            </div>
+            <h3 class="card-title">StockMaster Pro</h3>
+            <p class="card-desc">A feature-rich desktop inventory management system built in Java with a sleek dark-mode UI. Supports real-time stock tracking, product CRUD, low-stock alerts, transaction history, and user authentication.</p>
+            <div class="card-pills">
+              <span class="mini-pill">Java</span>
+              <span class="mini-pill">Swing/JavaFX</span>
+              <span class="mini-pill">SQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: AirforceNiBBM -->
+        <article class="project-card glass reveal-up delay-2" data-index="02">
+          <div class="card-img-wrap">
+            <div class="card-img project-img-2">
+              <div class="img-overlay">
+                <a href="#" class="overlay-btn">View Project →</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">Java · Game Dev</span>
+              <span class="card-index">02</span>
+            </div>
+            <h3 class="card-title">AirforceNiBBM</h3>
+            <p class="card-desc">A custom 2D top-down shooter game built from scratch in Java. Features hand-crafted collision physics, wave-based enemy AI, sprite animation, and original game mechanics designed for replayability.</p>
+            <div class="card-pills">
+              <span class="mini-pill">Java</span>
+              <span class="mini-pill">Game Loop</span>
+              <span class="mini-pill">2D Physics</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: C# Student Info System -->
+        <article class="project-card glass reveal-up delay-3" data-index="03">
+          <div class="card-img-wrap">
+            <div class="card-img project-img-3">
+              <div class="img-overlay">
+                <a href="#" class="overlay-btn">View Project →</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">C# · Desktop</span>
+              <span class="card-index">03</span>
+            </div>
+            <h3 class="card-title">Student Info System</h3>
+            <p class="card-desc">A Windows desktop application built in C# for managing student records, enrollment data, and academic performance. Clean CRUD interface with SQL backend and role-based access control.</p>
+            <div class="card-pills">
+              <span class="mini-pill">C#</span>
+              <span class="mini-pill">.NET</span>
+              <span class="mini-pill">SQL Server</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: FactChecker Extension — FEATURED -->
+        <article class="project-card glass project-featured reveal-up delay-4" data-index="04">
+          <div class="featured-badge">Featured</div>
+          <div class="card-img-wrap">
+            <div class="card-img project-img-4">
+              <div class="img-overlay">
+                <a href="https://roschinmme-lang.github.io/factcheckerforfb/" target="_blank" class="overlay-btn">View Live →</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-tag">JS · Chrome Extension · AI</span>
+              <span class="card-index">04</span>
+            </div>
+            <h3 class="card-title">FactChecker for Facebook</h3>
+            <p class="card-desc">A real-time AI-powered Chrome Extension that lets users snip any Facebook post or image and instantly get a True/Misleading/Hoax verdict powered by Mistral AI. Features deepfake image analysis, source citations, and privacy-first session-based processing — no data stored.</p>
+            <div class="card-pills">
+              <span class="mini-pill">JavaScript</span>
+              <span class="mini-pill">Mistral AI</span>
+              <span class="mini-pill">Chrome API</span>
+              <span class="mini-pill">Pixtral-12B</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CERTIFICATES SECTION
+  ============================================================ -->
+  <section class="certificates section-pad" id="certificates">
+    <div class="container">
+      <div class="section-label reveal-up">Credentials</div>
+      <h2 class="section-title reveal-up">Certificates<span class="accent-text">.</span></h2>
+
+      <div class="cert-grid">
+
+        <!-- Oracle Academy Certificate -->
+        <div class="cert-card glass reveal-up delay-1">
+          <div class="cert-logo">
+            <div class="cert-logo-icon oracle-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="8" fill="#C74634"/>
+                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">ORA</text>
+              </svg>
+            </div>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">Oracle Academy</span>
+            <h3 class="cert-title">Java Fundamentals</h3>
+            <p class="cert-meta">Issued June 7, 2025 · English</p>
+            <p class="cert-desc">Awarded by Oracle Academy Instructor Beronika Pena for satisfactory completion of all Java Fundamentals coursework.</p>
+          </div>
+          <div class="cert-ribbon">✓ Verified</div>
+        </div>
+
+        <!-- Placeholder cert 2 -->
+        <div class="cert-card glass reveal-up delay-2">
+          <div class="cert-logo">
+            <div class="cert-logo-icon sti-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="8" fill="#003087"/>
+                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">STI</text>
+              </svg>
+            </div>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">STI College Bacoor</span>
+            <h3 class="cert-title">BSIT Academic Excellence</h3>
+            <p class="cert-meta">2024 – Present</p>
+            <p class="cert-desc">Pursuing Bachelor of Science in Information Technology with focus on software development and systems design.</p>
+          </div>
+          <div class="cert-ribbon in-progress">In Progress</div>
+        </div>
+
+        <!-- Placeholder cert 3 -->
+        <div class="cert-card glass reveal-up delay-3">
+          <div class="cert-logo">
+            <div class="cert-logo-icon dev-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="8" fill="#0F172A" stroke="#3B82F6" stroke-width="1.5"/>
+                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#3B82F6" font-size="9" font-weight="bold" font-family="monospace">&lt;/&gt;</text>
+              </svg>
+            </div>
+          </div>
+          <div class="cert-body">
+            <span class="cert-issuer">New Innova Team</span>
+            <h3 class="cert-title">FactChecker — Venture Viability</h3>
+            <p class="cert-meta">April 2026 · Cavite, Philippines</p>
+            <p class="cert-desc">Lead developer of FactChecker, an AI-powered Chrome Extension presented as a venture at STI Bacoor's Entrepreneurship showcase.</p>
+          </div>
+          <div class="cert-ribbon">Project</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT / FOOTER SECTION
+  ============================================================ -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="section-label reveal-up">Get in Touch</div>
+      <h2 class="section-title reveal-up">Let's build<br><span class="accent-text">something.</span></h2>
+      <p class="section-sub reveal-up delay-1">Have a project in mind, a collaboration, or just want to say hi? I'm all ears.</p>
+
+      <div class="contact-grid">
+        <!-- Contact form -->
+        <div class="contact-form-wrap reveal-up delay-2">
+          <div class="glass contact-form-inner">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="your@email.com" autocomplete="off" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell me what you're working on..."></textarea>
+            </div>
+            <button class="btn btn-primary btn-full" id="sendBtn">Send Message</button>
+            <p class="form-status" id="formStatus"></p>
+          </div>
+        </div>
+
+        <!-- Contact info + social links -->
+        <div class="contact-info reveal-right delay-3">
+          <div class="info-block">
+            <span class="info-label">Email</span>
+            <a href="mailto:roschin@email.com" class="info-value">roschin@email.com</a>
+          </div>
+          <div class="info-block">
+            <span class="info-label">Location</span>
+            <span class="info-value">Cavite, Philippines 🇵🇭</span>
+          </div>
+          <div class="info-block">
+            <span class="info-label">School</span>
+            <span class="info-value">STI College Bacoor</span>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/roschinmme-lang" target="_blank" class="social-btn" aria-label="GitHub">
+              <!-- GitHub SVG icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://roschinmme-lang.github.io/factcheckerforfb/" target="_blank" class="social-btn" aria-label="FactChecker">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+            </a>
+            <a href="https://roschinmme-lang.github.io/wadwhaniwebsayti/" target="_blank" class="social-btn" aria-label="Website">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer-bar">
+      <span>© 2026 Roschin Milargo. Built with intention.</span>
+      <span class="footer-credit">New Innova<span class="accent">.</span></span>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
