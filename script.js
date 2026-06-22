@@ -87,10 +87,10 @@ mobileLinks.forEach(link => {
 const typingEl = document.getElementById('typingText');
 
 const roles = [
-  'full-stack applications.',
-  'Java desktop software.',
-  'AI-powered tools.',
-  'Chrome extensions.',
+  'with AI.',
+  'ideas to reality.',
+  'imagination to reality.',
+  'solutions that solve problem.',
   'things that matter.',
 ];
 
