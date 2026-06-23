@@ -677,7 +677,7 @@ ul { list-style: none; }
 .project-img-1::before { content: '📦 StockMaster Pro'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
 
 .project-img-2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-.project-img-2::before { content: '✈️ AirforceNiBBM'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
+.project-img-2::before { content: '✈️ Pacific Ace'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
 
 .project-img-3 { background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1f2937 100%); }
 .project-img-3::before { content: '🎓 Student Info System'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
