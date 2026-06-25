@@ -358,3 +358,115 @@ document.body.style.transition = 'opacity 0.5s ease';
 window.addEventListener('load', () => {
   document.body.style.opacity = '1';
 });
+// ============================================================
+// 14. GITHUB ACTIVITY — Fetch stats + build contribution heatmap
+// ============================================================
+(async function initGitHub() {
+  const USERNAME = 'roschinmme-lang';
+
+  // --- Fetch user profile stats ---
+  try {
+    const res  = await fetch(`https://api.github.com/users/${USERNAME}`);
+    const data = await res.json();
+    if (data.public_repos !== undefined) {
+      animateCount(document.getElementById('ghRepos'),     data.public_repos);
+      animateCount(document.getElementById('ghFollowers'), data.followers);
+      animateCount(document.getElementById('ghFollowing'), data.following);
+    }
+  } catch (e) { console.warn('GitHub user fetch failed', e); }
+
+  // --- Fetch events to count commits in the last year ---
+  try {
+    const evRes   = await fetch(`https://api.github.com/users/${USERNAME}/events/public?per_page=100`);
+    const events  = await evRes.json();
+    if (Array.isArray(events)) {
+      const pushEvents = events.filter(e => e.type === 'PushEvent');
+      const commits    = pushEvents.reduce((sum, e) => sum + (e.payload?.commits?.length || 0), 0);
+      animateCount(document.getElementById('ghCommits'), commits);
+    }
+  } catch (e) { console.warn('GitHub events fetch failed', e); }
+
+  // --- Build heatmap using GitHub's SVG contribution graph ---
+  buildHeatmap(USERNAME);
+})();
+
+async function buildHeatmap(username) {
+  const heatmapEl   = document.getElementById('ghHeatmap');
+  const totalEl     = document.getElementById('ghTotalContribs');
+
+  // Use github-contributions-api (public proxy) to get contribution data
+  try {
+    const res  = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`);
+    const data = await res.json();
+
+    if (!data.contributions) throw new Error('No data');
+
+    const contributions = data.contributions; // array of { date, count, level }
+    const total = data.total?.lastYear ?? contributions.reduce((s, d) => s + d.count, 0);
+
+    totalEl.textContent = `${total.toLocaleString()} contributions in the last year`;
+
+    // Group by week (Sunday start)
+    const weeks = [];
+    let week    = [];
+
+    // Pad first week
+    const firstDay = new Date(contributions[0].date).getDay();
+    for (let i = 0; i < firstDay; i++) week.push(null);
+
+    contributions.forEach(day => {
+      week.push(day);
+      if (week.length === 7) { weeks.push(week); week = []; }
+    });
+    if (week.length) weeks.push(week);
+
+    // Render
+    heatmapEl.innerHTML = '';
+    weeks.forEach(w => {
+      const col = document.createElement('div');
+      col.className = 'gh-week';
+      w.forEach(day => {
+        const cell = document.createElement('div');
+        cell.className = 'gh-day';
+        if (day) {
+          const level = day.level ?? getLevel(day.count);
+          cell.setAttribute('data-level', level);
+          const d = new Date(day.date);
+          const label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          cell.setAttribute('data-tip', `${day.count} contribution${day.count !== 1 ? 's' : ''} on ${label}`);
+        } else {
+          cell.setAttribute('data-level', '0');
+          cell.style.opacity = '0';
+        }
+        col.appendChild(cell);
+      });
+      heatmapEl.appendChild(col);
+    });
+
+  } catch (e) {
+    // Fallback: render placeholder with error message
+    document.getElementById('ghTotalContribs').textContent = 'Could not load contributions';
+    console.warn('Heatmap fetch failed', e);
+  }
+}
+
+function getLevel(count) {
+  if (count === 0) return 0;
+  if (count <= 2)  return 1;
+  if (count <= 5)  return 2;
+  if (count <= 9)  return 3;
+  return 4;
+}
+
+function animateCount(el, target) {
+  if (!el || isNaN(target)) return;
+  const duration = 1200;
+  const start    = performance.now();
+  function update(now) {
+    const t = Math.min((now - start) / duration, 1);
+    el.textContent = Math.round(t * target);
+    if (t < 1) requestAnimationFrame(update);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(update);
+}
