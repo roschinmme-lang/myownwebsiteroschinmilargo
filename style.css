@@ -977,6 +977,142 @@ a.info-value:hover { color: var(--accent); }
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(59,130,246,0.2);
 }
+/* ============================================================
+   GITHUB ACTIVITY SECTION
+============================================================ */
+.gh-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.gh-stat-card {
+  padding: 24px 20px;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s;
+}
+.gh-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.gh-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-1);
+  line-height: 1;
+}
+.gh-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.gh-heatmap-wrap {
+  border-radius: 20px;
+  padding: 28px 28px 20px;
+  margin-bottom: 28px;
+}
+.gh-heatmap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.gh-heatmap-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+}
+.gh-heatmap-sub {
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+.gh-heatmap-scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.gh-heatmap {
+  display: flex;
+  gap: 3px;
+  min-width: max-content;
+}
+.gh-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.gh-day {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.05);
+  transition: transform 0.15s;
+  cursor: default;
+  position: relative;
+}
+.gh-day:hover { transform: scale(1.4); z-index: 10; }
+.gh-day[data-level="0"] { background: rgba(255,255,255,0.05); }
+.gh-day[data-level="1"] { background: rgba(59,130,246,0.25); }
+.gh-day[data-level="2"] { background: rgba(59,130,246,0.45); }
+.gh-day[data-level="3"] { background: rgba(59,130,246,0.7); }
+.gh-day[data-level="4"] { background: rgba(59,130,246,1); }
+.gh-day::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(8,12,20,0.95);
+  border: 1px solid var(--border);
+  color: var(--text-1);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  z-index: 100;
+}
+.gh-day:hover::after { opacity: 1; }
+.gh-heatmap-footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--text-3);
+  justify-content: flex-end;
+}
+.gh-legend-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+.gh-legend-cell[data-level="0"] { background: rgba(255,255,255,0.05); }
+.gh-legend-cell[data-level="1"] { background: rgba(59,130,246,0.25); }
+.gh-legend-cell[data-level="2"] { background: rgba(59,130,246,0.45); }
+.gh-legend-cell[data-level="3"] { background: rgba(59,130,246,0.7); }
+.gh-legend-cell[data-level="4"] { background: rgba(59,130,246,1); }
+.gh-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+.gh-cta .btn svg { margin-right: 8px; }
+@media (max-width: 768px) {
+  .gh-stats-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gh-stat-num { font-size: 1.6rem; }
+  .gh-heatmap-wrap { padding: 20px 16px 16px; }
+  .gh-day { width: 10px; height: 10px; }
+  .gh-legend-cell { width: 10px; height: 10px; }
+}
 
 .footer-bar {
   margin-top: 80px;
@@ -997,7 +1133,6 @@ a.info-value:hover { color: var(--accent); }
   color: var(--text-2);
 }
 .footer-credit .accent { color: var(--accent); }
-
 /* ============================================================
    RESPONSIVE — TABLET
 ============================================================ */
