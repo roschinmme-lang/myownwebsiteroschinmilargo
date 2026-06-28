@@ -66,16 +66,12 @@ const mobileLinks = document.querySelectorAll('.mobile-link');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
-  // Prevent body scroll when menu is open
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
 });
 
-// Close mobile menu when a link is clicked
 mobileLinks.forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
   });
 });
 
