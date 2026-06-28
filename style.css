@@ -695,16 +695,10 @@ ul { list-style: none; }
 
 /* Project image placeholder backgrounds */
 .project-img-1 { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); }
-.project-img-1::before { content: '📦 StockMaster Pro'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
 
 .project-img-2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
-.project-img-2::before { content: '✈️ Pacific Ace'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
 
 .project-img-3 { background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1f2937 100%); }
-.project-img-3::before { content: '🎓 Student Info System'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
-
-.project-img-4 { background: linear-gradient(135deg, #0a0a0a 0%, #111827 50%, #1e1b4b 100%); }
-.project-img-4::before { content: '🔍 FactChecker Extension'; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
 
 .img-overlay {
   position: absolute;
