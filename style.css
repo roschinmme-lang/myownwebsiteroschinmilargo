@@ -804,6 +804,15 @@ ul { list-style: none; }
 /* ============================================================
    CERTIFICATES SECTION
 ============================================================ */
+.cert-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+}
 .certificates { background: var(--bg-2); }
 
 .cert-grid {
