@@ -466,3 +466,43 @@ function animateCount(el, target) {
   }
   requestAnimationFrame(update);
 }
+
+// ============================================================
+// HEATMAP TOOLTIP — JS-driven to avoid overflow/clip issues
+// Creates a single floating tooltip div and positions it
+// above each .gh-day cell on mouseenter using fixed coords.
+// ============================================================
+(function initHeatmapTooltip() {
+  // Create one shared tooltip element
+  const tip = document.createElement('div');
+  tip.className = 'gh-tooltip';
+  document.body.appendChild(tip);
+
+  // Use event delegation on the heatmap container
+  const heatmap = document.getElementById('ghHeatmap');
+  if (!heatmap) return;
+
+  heatmap.addEventListener('mouseover', (e) => {
+    const day = e.target.closest('.gh-day');
+    if (!day || !day.dataset.tip) return;
+
+    const rect = day.getBoundingClientRect();
+    tip.textContent = day.dataset.tip;
+
+    // Position above the cell, centered horizontally
+    tip.style.left = `${rect.left + rect.width / 2}px`;
+    tip.style.top  = `${rect.top - 34}px`;
+    tip.style.opacity = '1';
+  });
+
+  heatmap.addEventListener('mouseout', (e) => {
+    const day = e.target.closest('.gh-day');
+    if (!day) return;
+    tip.style.opacity = '0';
+  });
+
+  // Hide if mouse leaves heatmap entirely
+  heatmap.addEventListener('mouseleave', () => {
+    tip.style.opacity = '0';
+  });
+})();
